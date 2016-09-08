@@ -1,0 +1,3 @@
+myget version 5
+
+The last version we submitted had a hardcoded content length which would break again if the length was over four digits. We finally made it easy on ourselves by splitting the headers into separate lines and just finding the line with Content-Length on it. Once we did that, it was easy to find the \r\n after Content-Length so that we could get the data in between "Content-Length: " and "\r\n". We tested this against the URLS your provided and they all worked.
